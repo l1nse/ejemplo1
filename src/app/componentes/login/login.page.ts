@@ -12,7 +12,10 @@ export class LoginPage implements OnInit {
   email : string;
   password : string;  
 
-  constructor(private authService : AuthService, public router: Router ) { }
+  constructor(
+    private authService : AuthService, 
+    public router: Router 
+  ) { }
 
   ngOnInit() {
   }
@@ -32,14 +35,6 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/registrous'])
   }
 
-  registerEmail2()
-  {
-    console.log("entre en el register")
-    this.authService.registerEmail(this.email , this.password).then(res => {
-      alert('Usuario registrado');
-      this.router.navigate(['/login']);
-
-    }).catch(err => alert(err))
-  }
+ 
   
 }
