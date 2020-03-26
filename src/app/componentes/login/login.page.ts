@@ -26,5 +26,15 @@ export class LoginPage implements OnInit {
     }).catch(err => alert('los datos son incorrectos o no existe el usuario'))
     
   }
+  
+  registerEmail()
+  {
+    console.log("entre en el register")
+    this.authService.registerEmail(this.email , this.password).then(res => {
+      alert('Usuario registrado');
+      this.router.navigate(['/login']);
 
+    }).catch(err => alert(err))
+  }
+  
 }

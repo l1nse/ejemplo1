@@ -18,7 +18,18 @@ export class AuthService {
         resolve(user)
       }).catch(err => rejected(err));
 
-    } );
-    
+    } );    
   }
+
+  registerEmail(email : string , password :string)
+  {
+    return new Promise((resolve , rejected) => {
+      this.AFauth.auth.createUserWithEmailAndPassword(email , password).then(res =>{
+        resolve(res)
+      }).catch(err => rejected(err));   
+    } );   
+  }
+  
+
+
 }
