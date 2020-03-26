@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'boulder',
     loadChildren: () => import('./componentes/boulder/boulder.module').then( m => m.BoulderPageModule)
   },
+  {
+    path: 'registrous',
+    loadChildren: () => import('./componentes/registrous/registrous.module').then( m => m.RegistrousPageModule)
+  },
 ];
 
 @NgModule({

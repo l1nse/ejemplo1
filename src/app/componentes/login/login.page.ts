@@ -27,7 +27,12 @@ export class LoginPage implements OnInit {
     
   }
   
-  registerEmail()
+  redirectRegister()
+  {
+    this.router.navigate(['/registrous'])
+  }
+
+  registerEmail2()
   {
     console.log("entre en el register")
     this.authService.registerEmail(this.email , this.password).then(res => {
