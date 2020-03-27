@@ -2,28 +2,32 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore' 
 import {  map } from "rxjs/operators";
 
-export interface chat {
+export interface boulder{
   descripcion : string
-  name : string
   id : string
+  nombre : string
   img : string
-} 
+  ubicacion : string 
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChatsService {
+export class BoulderService {
 
   constructor(private db : AngularFirestore) { }
 
- getChatRooms(){
-    //return this.db.collection('chatRooms').snapshotChanges();
-    return this.db.collection('chatRooms').snapshotChanges().pipe(map(rooms => {
+  getBoulderZones(){
+    //return this.db.collection('boulder').snapshotChanges();
+    return this.db.collection('boulder').snapshotChanges().pipe(map(rooms => {
       return rooms.map(a =>{
-        const data = a.payload.doc.data() as chat;
+        const data = a.payload.doc.data() as boulder;
         data.id = a.payload.doc.id;
         return data;
       })
     }))
  }
 }
+
+
+ 

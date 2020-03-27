@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BoulderService } from "../../servicios/boulder.service";
 
 @Component({
   selector: 'app-boulder',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoulderPage implements OnInit {
 
-  constructor() { }
+  public boulderZones : any = [];
+
+  constructor( public boulderservice : BoulderService ) { }
 
   ngOnInit() {
+    this.boulderservice.getBoulderZones().subscribe( boulderzones =>{  
+      this.boulderZones =  boulderzones;
+    })
   }
 
 }

@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
 import { BoulderPageRoutingModule } from './boulder-routing.module';
-
 import { BoulderPage } from './boulder.page';
-
+ 
 @NgModule({
   imports: [
     CommonModule,

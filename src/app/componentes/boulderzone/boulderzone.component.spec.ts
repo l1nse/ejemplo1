@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { BoulderPage } from './boulder.page';
+import { BoulderzoneComponent } from './boulderzone.component';
 
-describe('BoulderPage', () => {
-  let component: BoulderPage;
-  let fixture: ComponentFixture<BoulderPage>;
+describe('BoulderzoneComponent', () => {
+  let component: BoulderzoneComponent;
+  let fixture: ComponentFixture<BoulderzoneComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoulderPage ],
+      declarations: [ BoulderzoneComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BoulderPage);
+    fixture = TestBed.createComponent(BoulderzoneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
