@@ -31,11 +31,12 @@ export class HomePage implements OnInit{
 
   }
 
-  openChat( objeto){
+  openChat( chat){
     this.modal.create({
       component : ChatComponent,
       componentProps : {
-        name : objeto.name
+        name : chat.name,
+        descripcion :chat.descripcion
       }
     }).then((modal) => modal.present())
   }

@@ -1,2 +1,23 @@
-<h3> nuestro modal funciona</h3>
-<ion-button (click)="atras()">atras</ion-button>  
+<ion-header>
+    <ion-toolbar color = "tertiary">
+        <ion-button slot="start" fill="clear" (click)="closeModal()">
+            <ion-icon  name="close" > </ion-icon>
+        </ion-button>
+        <ion-title>{{name}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>{{descripcion}}</h1>
+</ion-content>
+
+<ion-footer>  
+    <ion-item>
+        <ion-textarea></ion-textarea>
+        <ion-button color ="success"> 
+            <ion-icon name = "send"></ion-icon>
+        </ion-button>
+    </ion-item>    
+</ion-footer>
+
+<!-- <ion-button (click)="closeChat()">atras</ion-button>  -->
