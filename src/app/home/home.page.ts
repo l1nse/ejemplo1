@@ -33,6 +33,9 @@ export class HomePage implements OnInit{
         
         const data = chat.payload.doc.data() as chat;
         data.id = chat.payload.doc.id; 
+
+        this.chatRooms.push(data); 
+
         console.log(data);
         //console.log(chat.payload.doc.data());
       })
