@@ -3,7 +3,7 @@ import { AuthService} from '../servicios/auth.service';
 import { ChatsService } from '../servicios/chats.service';
 
 interface chat {
-  description : string
+  descripcion : string
   name : string
   id : string
   img : string
