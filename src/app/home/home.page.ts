@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../servicios/auth.service';
-import { ChatsService } from '../servicios/chats.service';
+import { ChatsService , chat } from '../servicios/chats.service';
+import { ModalController } from "@ionic/angular";
+import { ChatComponent } from "../componentes/chat/chat.component";
 
-interface chat {
-  descripcion : string
-  name : string
-  id : string
-  img : string
-}
 
 @Component({
   selector: 'app-home',
@@ -19,7 +15,8 @@ export class HomePage implements OnInit{
   public chatRooms : any = [];
 
   constructor(public authservice : AuthService,
-              public chatservice : ChatsService) {}
+              public chatservice : ChatsService,
+              private modal : ModalController) {}
 
   logout(){
     console.log("en el logout");
@@ -28,18 +25,18 @@ export class HomePage implements OnInit{
   }
 
   ngOnInit(){
-    this.chatservice.getChatRooms().subscribe( chats =>{
-      chats.map( chat => {
-        
-        const data = chat.payload.doc.data() as chat;
-        data.id = chat.payload.doc.id; 
-
-        this.chatRooms.push(data); 
-
-        console.log(data);
-        //console.log(chat.payload.doc.data());
-      })
+    this.chatservice.getChatRooms().subscribe( chats =>{  
+      this.chatRooms = chats;
     })
 
+  }
+
+  openChat( objeto){
+    this.modal.create({
+      component : ChatComponent,
+      componentProps : {
+        name : objeto.name
+      }
+    }).then((modal) => modal.present())
   }
 }
