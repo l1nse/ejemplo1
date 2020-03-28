@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+
 import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
@@ -12,8 +12,15 @@ export class ChatComponent implements OnInit {
   public name : string ;
   public descripcion : string;
 
-  constructor(private router : Router,
-              private navparams : NavParams,
+  public mensajes = [
+     'hola soy un mensaje',
+     '2do mensaje',
+     '3er mensaje'
+  ];
+  public msg :string;
+
+
+  constructor(private navparams : NavParams,
               private modal : ModalController ) { }
 
   ngOnInit() {
@@ -21,16 +28,16 @@ export class ChatComponent implements OnInit {
     this.descripcion = this.navparams.get("descripcion")
   }
 
-  atras()
-  {
-    console.log("atras")
-    this.router.navigate(['/home'])
-  }
-
+  
   closeModal()
   {
     console.log("cerrando el modal chat");
     this.modal.dismiss()
+  }
+
+  sendMensage(){
+    this.mensajes.push(this.msg);
+    this.msg = "";
   }
 
 }
