@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { NavParams, ModalController } from '@ionic/angular';
 
+import { message } from '../../models/message';
+import { ChatsService} from '../../servicios/chats.service';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -9,23 +12,26 @@ import { NavParams, ModalController } from '@ionic/angular';
 })
 export class ChatComponent implements OnInit {
 
-  public name : string ;
-  public descripcion : string;
-
-  public mensajes = [
-     'hola soy un mensaje',
-     '2do mensaje',
-     '3er mensaje'
-  ];
-  public msg :string;
+  public chat : any;
+  //public mensajes = [];
+  //public message : message ;
+  public msg : string;
+  public room : any;
 
 
   constructor(private navparams : NavParams,
-              private modal : ModalController ) { }
+              private modal : ModalController,
+              private chatService : ChatsService ) { }
 
   ngOnInit() {
-    this.name = this.navparams.get("name");
-    this.descripcion = this.navparams.get("descripcion")
+    this.chatService.getChatRoom(this.chat.id).subscribe(room =>{
+      console.log(room);
+      this.room = room;
+    })
+
+    this.chat = this.navparams.get("chat");
+
+    
   }
 
   
@@ -36,7 +42,15 @@ export class ChatComponent implements OnInit {
   }
 
   sendMensage(){
-    this.mensajes.push(this.msg);
+
+    const mensaje : message = {
+      content : this.msg,
+      type : "text",
+      date : new Date()
+    }
+
+    //this.mensajes.push(this.message);
+    this.chatService.sendMsgToFirebase( mensaje , this.chat.id);
     this.msg = "";
   }
 
