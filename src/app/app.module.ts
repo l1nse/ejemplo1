@@ -16,12 +16,13 @@ import { AngularFireAuthModule  } from '@angular/fire/auth';
 
 import { AngularFirestoreModule , FirestoreSettingsToken} from '@angular/fire/firestore';
 import { ChatComponent} from '../app/componentes/chat/chat.component';
+import { BoulderzoneComponent} from '../app/componentes/boulderzone/boulderzone.component'
 
 
 
 @NgModule({
-  declarations: [AppComponent, ChatComponent],
-  entryComponents: [ChatComponent],
+  declarations: [AppComponent , ChatComponent , BoulderzoneComponent],
+  entryComponents: [ChatComponent , BoulderzoneComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
     AngularFireModule.initializeApp(firebaseConfig), AngularFireAuthModule,
     AngularFirestoreModule ],

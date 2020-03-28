@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BoulderService } from "../../servicios/boulder.service";
+import { ModalController } from "@ionic/angular";
+import { BoulderzoneComponent} from '../boulderzone/boulderzone.component'
 
 @Component({
   selector: 'app-boulder',
@@ -10,12 +13,27 @@ export class BoulderPage implements OnInit {
 
   public boulderZones : any = [];
 
-  constructor( public boulderservice : BoulderService ) { }
+  constructor( public boulderservice : BoulderService,
+               public modal :  ModalController) { }
 
   ngOnInit() {
     this.boulderservice.getBoulderZones().subscribe( boulderzones =>{  
       this.boulderZones =  boulderzones;
     })
   }
+
+  openZone( boulderZone){
+      console.log("open zone ");
+      this.modal.create({
+        component : BoulderzoneComponent,
+        componentProps : {
+          nombre : boulderZone.nombre,
+          descripcion : boulderZone.descripcion,
+        }
+      }).then((modal) => modal.present())  
+  }
+
+  
+
 
 }

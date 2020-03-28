@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService} from '../servicios/auth.service';
 import { ChatsService , chat } from '../servicios/chats.service';
 import { ModalController } from "@ionic/angular";
@@ -29,7 +30,7 @@ export class HomePage implements OnInit{
       this.chatRooms = chats;
     })
 
-  }
+  } 
 
   openChat( chat){
     this.modal.create({

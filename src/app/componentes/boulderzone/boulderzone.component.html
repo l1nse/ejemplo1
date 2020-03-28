@@ -1,3 +1,12 @@
-<p>
-  boulderzone works!
-</p>
+<ion-header>
+  <ion-toolbar color = "tertiary">
+      <ion-button slot="start" fill="clear" (click)="closeModal()">
+          <ion-icon  name="close" > </ion-icon>
+      </ion-button>
+      <ion-title>{{nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{descripcion}}</h1>
+</ion-content>
