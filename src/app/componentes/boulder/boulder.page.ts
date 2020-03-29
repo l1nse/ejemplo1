@@ -20,6 +20,8 @@ export class BoulderPage implements OnInit {
     this.boulderservice.getBoulderZones().subscribe( boulderzones =>{  
       this.boulderZones =  boulderzones;
     })
+
+   
   }
 
   openZone( boulderZone){
@@ -27,8 +29,7 @@ export class BoulderPage implements OnInit {
       this.modal.create({
         component : BoulderzoneComponent,
         componentProps : {
-          nombre : boulderZone.nombre,
-          descripcion : boulderZone.descripcion,
+          zone : boulderZone
         }
       }).then((modal) => modal.present())  
   }

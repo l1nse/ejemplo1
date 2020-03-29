@@ -30,8 +30,6 @@ export class ChatComponent implements OnInit {
     })
 
     this.chat = this.navparams.get("chat");
-
-    
   }
 
   

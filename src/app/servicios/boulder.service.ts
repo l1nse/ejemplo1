@@ -27,6 +27,13 @@ export class BoulderService {
       })
     }))
  }
+
+ getBoulderZone(boulder_id : string){
+  return this.db.collection('boulder').doc(boulder_id).valueChanges();
+}
+
+
+
 }
 
 

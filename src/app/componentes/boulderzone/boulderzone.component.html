@@ -3,10 +3,14 @@
       <ion-button slot="start" fill="clear" (click)="closeModal()">
           <ion-icon  name="close" > </ion-icon>
       </ion-button>
-      <ion-title>{{nombre}}</ion-title>
+      <ion-title>2232{{zone.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>{{descripcion}}</h1>
+  <!--<ul *ngIf = "boulderzone"> -->
+  <ul>
+    <li *ngFor = " let area of  zone.boulderareas; let num = index"  (click)="abrirbloque(num)"> 
+      {{area.nombre}} / {{num}}  </li>
+  </ul>
 </ion-content>
