@@ -1,15 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>minisector</ion-title>
+  <ion-toolbar color = "tertiary">    
+      <ion-title>{{nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding >
   <ul>
-    <li  > as</li>
+    <li> as</li>
   </ul>
   <ul *ngIf = "bloques">
-    <li *ngFor = " let bloque of  bloques; let num = index" (click)="verMiniArea(num)"> {{bloque.nombre}}</li>
+    <li *ngFor = " let bloque of  bloques; let num = index" (click)="openBloque(num)"> {{bloque.nombre}}</li>
 </ul>
 </ion-content>
 

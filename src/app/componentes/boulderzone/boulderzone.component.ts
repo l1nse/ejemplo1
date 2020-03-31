@@ -19,6 +19,7 @@ export class BoulderzoneComponent implements OnInit {
 
   public zone : any;
   public boulderzone : any;
+  public nombreminisector : string;
 
   constructor( private navparams : NavParams,
                private modal : ModalController,
@@ -46,8 +47,11 @@ export class BoulderzoneComponent implements OnInit {
 
   abrirbloque( index : string)
   {
+    this.nombreminisector = this.zone.boulderareas[index].nombre;
+    console.log("nombreminisecor");
+    console.log(this.nombreminisector);
     console.log('abriendo un bloque : ' + index);
-    this.route.navigate(['/minisector', index , this.id_zona ]);
+    this.route.navigate(['/minisector', index , this.id_zona , this.nombreminisector ]);
     this.modal.dismiss();
   }
   

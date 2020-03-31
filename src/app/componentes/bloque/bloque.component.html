@@ -1,3 +1,15 @@
-<p>
-  bloque works!
-</p>
+<ion-header>
+    <ion-toolbar color = "tertiary">
+        <ion-button slot="start" fill="clear" (click)="closeModal()">
+            <ion-icon style="color : #ffff; font-size : 25px"  name="arrow-back" > </ion-icon>
+        </ion-button>
+        <ion-title>{{bloque.nombre}} </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding >
+  <p>
+    {{bloque.nombre}}
+  </p>
+</ion-content>
+
+
