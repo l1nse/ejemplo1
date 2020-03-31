@@ -23,7 +23,17 @@ const routes: Routes = [
     canActivate : [NologinGuard] },
  
   {
-    path: 'minisector/:id',
+    path: 'minisector/:idminisector',
+    loadChildren: () => import('./componentes/minisector/minisector.module').then( m => m.MinisectorPageModule)
+  },
+
+  {
+    path: 'minisector',
+    loadChildren: () => import('./componentes/minisector/minisector.module').then( m => m.MinisectorPageModule)
+  },
+ 
+  {
+    path: 'minisector/:idminisector/:idzona',
     loadChildren: () => import('./componentes/minisector/minisector.module').then( m => m.MinisectorPageModule)
   },
 

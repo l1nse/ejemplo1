@@ -15,6 +15,7 @@ export class BoulderzoneComponent implements OnInit {
   
   public nombre :string;
   public descripcion : string;
+  public id_zona : string
 
   public zone : any;
   public boulderzone : any;
@@ -26,13 +27,15 @@ export class BoulderzoneComponent implements OnInit {
 
   ngOnInit() {
 
-    this.boulderService.getBoulderZone(this.zone.id).subscribe(boulderzone =>{
-      this.boulderzone = boulderzone;
+    this.boulderService.getBoulderZone(this.zone.id).subscribe(room =>{
+      this.boulderzone = room;
       console.log(this.boulderzone);
+      
     })
 
     this.zone = this.navparams.get("zone");
     console.log(this.zone);
+    this.id_zona = this.zone.id;
   }
 
   closeModal()
@@ -44,8 +47,8 @@ export class BoulderzoneComponent implements OnInit {
   abrirbloque( index : string)
   {
     console.log('abriendo un bloque : ' + index);
+    this.route.navigate(['/minisector', index , this.id_zona ]);
     this.modal.dismiss();
-    this.route.navigate(['/minisector', index]);
   }
   
 

@@ -4,6 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  asdasd
+<ion-content padding >
+  <ul>
+    <li  > as</li>
+  </ul>
+  <ul *ngIf = "bloques">
+    <li *ngFor = " let bloque of  bloques; let num = index" (click)="verMiniArea(num)"> {{bloque.nombre}}</li>
+</ul>
 </ion-content>
+
