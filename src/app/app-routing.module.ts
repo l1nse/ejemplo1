@@ -21,6 +21,12 @@ const routes: Routes = [
   {path: 'registrous',
     loadChildren: () => import('./componentes/registrous/registrous.module').then( m => m.RegistrousPageModule),
     canActivate : [NologinGuard] },
+ 
+  {
+    path: 'minisector/:id',
+    loadChildren: () => import('./componentes/minisector/minisector.module').then( m => m.MinisectorPageModule)
+  },
+
 
 ];
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 
 import {BoulderService} from '../../servicios/boulder.service';
+import {Router} from'@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class BoulderzoneComponent implements OnInit {
 
   constructor( private navparams : NavParams,
                private modal : ModalController,
-               private boulderService : BoulderService ) { }
+               private boulderService : BoulderService ,
+               private route : Router) { }
 
   ngOnInit() {
 
@@ -43,6 +45,7 @@ export class BoulderzoneComponent implements OnInit {
   {
     console.log('abriendo un bloque : ' + index);
     this.modal.dismiss();
+    this.route.navigate(['/minisector', index]);
   }
   
 

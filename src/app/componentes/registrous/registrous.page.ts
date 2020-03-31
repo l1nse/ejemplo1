@@ -31,4 +31,9 @@ export class RegistrousPage implements OnInit {
     }).catch(err => alert(err))
   }
 
+  cerrarRegistro(){
+    console.log("en el registro");
+    this.router.navigate(['/login']);
+  }
+
 }
