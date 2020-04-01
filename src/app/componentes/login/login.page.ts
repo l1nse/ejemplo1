@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   {
     console.log("entre a la funcion a traves del click")
     this.authService.loginEmail(this.email , this.password).then(res => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/boulder']);
 
     }).catch(err => alert('los datos son incorrectos o no existe el usuario'))
     
