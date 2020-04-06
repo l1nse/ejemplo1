@@ -1,24 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Zonas de boulde en chilee</ion-title>
-    <ion-title>prueba</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Zonas de boulder de Chile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    
-    <ion-item *ngFor = "let objeto of boulderZones" (click)="openZone(objeto)">
-      <ion-avatar slot="start"> 
-        <ion-img src="{{objeto.imagen}}" ></ion-img> 
-      </ion-avatar>
-      <ion-label>
-        <h2><b>{{objeto.nombre}}</b></h2> 
-        <p fixed="auto">{{objeto.descripcion}}</p>
-      </ion-label>
-    </ion-item>
-  
-  
-</ion-list>
- 
+<ion-content padding>
+ <div *ngFor = "let objeto of boulderZones" class="box">
+    <ion-grid>
+    <ion-row  (click)="abrirzonadebloque(objeto)">
+      <ion-col size = "4" >
+        <img height="100%"  src="{{objeto.imagen}}" >
+      </ion-col>
+      <ion-col size="8">
+        <h6><b>{{objeto.nombre}}</b></h6> 
+        <p >{{objeto.descripcion}}</p>        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ </div> 
 </ion-content>

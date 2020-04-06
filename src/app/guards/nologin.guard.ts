@@ -31,7 +31,7 @@ export class NologinGuard implements CanActivate {
         }else
         {
           //console.log(auth);
-          this.router.navigate(['/home'])
+          this.router.navigate(['/boulder'])
           return true;
         }
     

@@ -4,7 +4,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { NologinGuard } from './guards/nologin.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'boulder', pathMatch: 'full' },
 
   { path: 'home', 
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), 
@@ -40,6 +40,22 @@ const routes: Routes = [
     path: 'minisector/:idminisector/:idzona/:nombreminisector',
     loadChildren: () => import('./componentes/minisector/minisector.module').then( m => m.MinisectorPageModule)
   },
+
+  {
+    path: 'zonasdebloque',
+    loadChildren: () => import('./zonasdebloque/zonasdebloque.module').then( m => m.ZonasdebloquePageModule)
+  },
+  
+  {
+    path: 'zonasdebloque/:idzonadebloque',
+    loadChildren: () => import('./zonasdebloque/zonasdebloque.module').then( m => m.ZonasdebloquePageModule)
+  },
+  
+  {
+    path: 'zonasdebloque/:idzonadebloque/:nombrezonadebloque',
+    loadChildren: () => import('./zonasdebloque/zonasdebloque.module').then( m => m.ZonasdebloquePageModule)
+  },
+
 
 
 ];

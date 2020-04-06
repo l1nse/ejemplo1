@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { BoulderService} from '../../servicios/boulder.service';
 import { ModalController } from "@ionic/angular";
 import { BloqueComponent} from '../bloque/bloque.component'
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-minisector',
@@ -19,16 +20,21 @@ export class MinisectorPage implements OnInit {
 
   constructor( private activated : ActivatedRoute,
                private boulderService : BoulderService,
-               private modal : ModalController ) {   }
+               private modal : ModalController,
+               private router : Router ) {   }
   
   
 
   ngOnInit() {
     this.idminisector = this.activated.snapshot.paramMap.get('idminisector');
+    console.log("id minisector : "+this.idminisector);
+
     this.idzona = this.activated.snapshot.paramMap.get('idzona');
+    console.log("id zona> :  "+ this.idzona);
+
     this.nombre = this.activated.snapshot.paramMap.get('nombreminisector');
-    console.log("nombre");
-    console.log(this . nombre);
+    console.log("nombre minisector : "+this.nombre);
+    
     
     this.boulderService.getBoulderZone(this.idzona).subscribe((area) =>{      
       console.log(area);
@@ -36,8 +42,8 @@ export class MinisectorPage implements OnInit {
       this.bloques = this.miniarea.boulderareas[this.idminisector].bloques
       console.log(this.bloques);
 
-      console.log("miniarea");
-      console.log(this.miniarea);
+      console.log("miniarea : "+this.miniarea);
+      //console.log(this.miniarea);
       
     })
   }
@@ -55,6 +61,12 @@ export class MinisectorPage implements OnInit {
         bloque : this.bloques[index]
       }
     }).then((modal) => modal.present())
+  }
+
+  volversectores()
+  {
+    console.log("volver al sector")
+    this.router.navigate(['zonasdebloque' , this.idzona , ]);
   }
 
 

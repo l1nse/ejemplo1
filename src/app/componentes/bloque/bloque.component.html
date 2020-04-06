@@ -1,15 +1,88 @@
 <ion-header>
     <ion-toolbar color = "tertiary">
-        <ion-button slot="start" fill="clear" (click)="closeModal()">
-            <ion-icon style="color : #ffff; font-size : 25px"  name="arrow-back" > </ion-icon>
+        <ion-button slot="end" fill="clear" (click)="closeModal()">
+            <ion-icon style="color : #ffff; font-size : 25px"  name="close" > </ion-icon>
         </ion-button>
-        <ion-title>{{bloque.nombre}} </ion-title>
+        <ion-title class="ion-text-center">{{bloque.nombre}} </ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content padding >
+
+  <ion-grid>
+    <ion-row *ngIf = "bloque">
+      <ion-col size = "12" *ngFor = " let foto of  bloque.fotos" >
+        <div class="box ">
+          <div class="box-icon">
+              <img src="{{foto.imagen}}" alt="Image" class="img-responsive">
+          </div>  
+          <div class="info float-container">
+            <!--  div en el cual van las lineas de bloque-->
+              <div class="lineasBloque" >
+                <ion-grid class="tabla">
+                    <ion-row >
+                      <ion-col size = "1" class ="columnabloque">
+                        <p>N°</p>
+                      </ion-col>                        
+                      <ion-col size = "4" class ="columnabloque">
+                        <p>Nombre </p>
+                      </ion-col>
+                      <ion-col size = "3" class ="columnabloque">
+                        <p>°USA</p>
+                      </ion-col>        
+                      <ion-col size = "4" class ="columnabloque">
+                        <p>Partida</p>
+                      </ion-col>        
+                  <!--<ion-col size = "2" class ="columnabloque">
+                        <p>°FRA</p>
+                      </ion-col>        
+                      <ion-col size = "3" class ="columnabloque">
+                        <p>iconos</p>
+                      </ion-col>        -->
+                    </ion-row>
+
+                    <ion-row *ngFor = "let linea of foto.lineas" >
+                      <ion-col size = "1"  class ="columnabloque">
+                        <p>{{linea.numero}}</p>
+                      </ion-col>                        
+                      <ion-col size = "4" class ="columnabloque">
+                        <p>{{linea.nombre }}</p>
+                      </ion-col>
+                      <ion-col size = "3" class ="columnabloque">
+                        <p>{{linea.gradoamericano}}</p>
+                      </ion-col>        
+                      <ion-col size = "4" class ="columnabloque">
+                        <p>{{linea.gradoamericano}}</p>
+                      </ion-col>        
+                  <!--<ion-col size = "2" class ="columnabloque">
+                        <p>{{linea.gradofrances}}</p>
+                      </ion-col>      
+                      <ion-col size = "3" class ="columnabloque">                                                   
+                          <img  *ngFor = " let icono of  foto.lineas"  width="20" src="https://firebasestorage.googleapis.com/v0/b/ejemplo1-a0820.appspot.com/o/climb.png?alt=media&token=5f2c7615-79cd-4eea-8b36-6cb2204d9e70"   >                                                                            
+                      </ion-col> -->        
+                    </ion-row> 
+                </ion-grid>                
+              </div>
+              
+          </div>
+        </div>
+
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid> 
+
+
+  
+
+
+  <!-- <ul *ngIf = "bloque">
+    <li *ngFor = " let foto of  bloque.fotos" >
+      <img src="{{foto.imagen}}" alt="" class="icon"  >
+    </li>
+  </ul>
   <p>
     {{bloque.nombre}}
-  </p>
+  </p> -->
 </ion-content>
 
 

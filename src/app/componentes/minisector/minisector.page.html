@@ -1,15 +1,31 @@
 <ion-header>
   <ion-toolbar color = "tertiary">    
-      <ion-title>{{nombre}}</ion-title>
+     <ion-button slot="end" fill="clear" (click)="volversectores()">
+       <ion-icon style="color : #ffff; font-size : 25px"  name="arrow-back" > </ion-icon>
+     </ion-button>
+     <ion-title class="ion-text-center">{{nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding >
-  <ul>
-    <li> as</li>
-  </ul>
-  <ul *ngIf = "bloques">
-    <li *ngFor = " let bloque of  bloques; let num = index" (click)="openBloque(num)"> {{bloque.nombre}}</li>
-</ul>
+
+  <ion-grid>
+    <ion-row *ngIf = "bloques">
+      <ion-col size = "6" *ngFor = " let bloque of  bloques; let num = index" >
+        <div class="bottom-img">
+          <img src="{{bloque.fotos[0].imagen}}" alt="Image" (click)="openBloque(num)"> 
+          <p class="first" (click)="openBloque(num)">{{bloque.nombre}}</p>    
+      </div>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid> 
+
+  <!--<ul *ngIf = "bloques">
+    <li *ngFor = " let bloque of  bloques; let num = index" (click)="openBloque(num)"> 
+      <img src="{{bloque.fotos[0].imagen}}" alt="" class="icon"  >
+ 
+
+</ul>-->
 </ion-content>
 
