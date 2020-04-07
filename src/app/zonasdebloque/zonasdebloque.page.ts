@@ -19,8 +19,6 @@ export class ZonasdebloquePage implements OnInit {
 
   ngOnInit() {
     this.idzonadebloque = this.activated.snapshot.paramMap.get('idzonadebloque');
-    //this.nombrezonadebloque = this.activated.snapshot.paramMap.get('nombrezonadebloque');
-    //console.log('id zona de bloque : '+this.idzonadebloque);
     console.log('nombre : '+this.nombrezonadebloque);
 
     this.boulderService.getBoulderZone(this.idzonadebloque).subscribe(room =>{
@@ -41,7 +39,15 @@ export class ZonasdebloquePage implements OnInit {
   }
 
   volverZonasDeBoulder(){
-    this.router.navigate(['/boulder']);
+    this.router.navigate(['/boulder',this.idzonadebloque, this.nombrezonadebloque]);
+  }
+
+  
+  abrirMapa()
+  {
+    
+    console.log("abre el mapa");
+    this.router.navigate(["/mapazona",this.idzonadebloque, this.nombrezonadebloque])
   }
 
   

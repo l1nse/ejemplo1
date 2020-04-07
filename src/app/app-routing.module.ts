@@ -55,6 +55,19 @@ const routes: Routes = [
     path: 'zonasdebloque/:idzonadebloque/:nombrezonadebloque',
     loadChildren: () => import('./zonasdebloque/zonasdebloque.module').then( m => m.ZonasdebloquePageModule)
   },
+  {
+    path: 'mapazona',
+    loadChildren: () => import('./componentes/mapazona/mapazona.module').then( m => m.MapazonaPageModule)
+  },
+  {
+    path: 'mapazona/:idzonadebloque',
+    loadChildren: () => import('./componentes/mapazona/mapazona.module').then( m => m.MapazonaPageModule)
+  },
+  {
+    path: 'mapazona/:idzonadebloque/:nombrezonadebloque',
+    loadChildren: () => import('./componentes/mapazona/mapazona.module').then( m => m.MapazonaPageModule)
+  },
+
 
 
 

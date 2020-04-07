@@ -54,6 +54,7 @@ export class BoulderzoneComponent implements OnInit {
     this.route.navigate(['/minisector', index , this.id_zona , this.nombreminisector ]);
     this.modal.dismiss();
   }
+
   
 
 }
