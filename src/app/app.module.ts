@@ -5,6 +5,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Geolocation} from '@ionic-native/geolocation/ngx'
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +24,8 @@ import { BloqueComponent} from '../app/componentes/bloque/bloque.component';
 
 import { FormsModule} from '@angular/forms';
 
+import { GoogleMaps } from '@ionic-native/google-maps';
+
 
 
 @NgModule({
@@ -34,6 +38,9 @@ import { FormsModule} from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    NativeGeocoder,
+    GoogleMaps,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue : {}}
   ],
